@@ -32,12 +32,13 @@ const updateExchangeRate = async () => {
     amtVal = 1;
     amount.value = "1";
   }
-  const URL = `${BASE_URL}/${fromCurr.value.toLowerCase()}/${toCurr.value.toLowerCase()}.json`;
+  // New API endpoint
+  const URL = `https://open.er-api.com/v6/latest/${fromCurr.value}`;
   let response = await fetch(URL);
   let data = await response.json();
-  let rate = data[toCurr.value.toLowerCase()];
+  let rate = data.rates[toCurr.value];
 
-  let finalAmount = amtVal * rate;
+  let finalAmount = (amtVal * rate).toFixed(4);
   msg.innerText = `${amtVal} ${fromCurr.value} = ${finalAmount} ${toCurr.value}`;
 };
 
