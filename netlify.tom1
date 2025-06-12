@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/api/*"
+  to = "https://open.er-api.com/v6/:splat"
+  status = 200
+  force = true

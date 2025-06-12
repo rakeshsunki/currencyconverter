@@ -1,3 +1,7 @@
+/**
+ * Currency to Country code mapping
+ * Used for flag image URLs
+ */
 const countryList = {
   AED: "AE",
   AFN: "AF",
