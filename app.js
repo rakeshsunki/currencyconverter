@@ -131,6 +131,11 @@ function setupEventListeners() {
   // Listen for amount input changes
   amountInput.addEventListener("input", updateExchangeRate);
   
+  // Handle focus event to select all text for easy replacement
+  amountInput.addEventListener("focus", () => {
+    amountInput.select();
+  });
+  
   // Listen for form submission
   convertBtn.addEventListener("click", (event) => {
     event.preventDefault();
