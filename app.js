@@ -186,9 +186,15 @@ async function updateExchangeRate() {
   resultDisplay.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Getting exchange rate...';
   
   // Validate and format amount
-  let amount = parseFloat(amountInput.value) || 1;
-  if (amount < 0) amount = 1;
-  amountInput.value = amount;
+  let amount = parseFloat(amountInput.value);
+  if (amountInput.value === "") {
+    resultDisplay.innerHTML = "<span class='error'>Please enter an amount.</span>";
+    return;
+  }
+  if (amount < 0 || isNaN(amount)) {
+    amount = 1;
+    amountInput.value = amount;
+  }
   
   try {
     const fromCurrency = fromCurrencySelect.value;
